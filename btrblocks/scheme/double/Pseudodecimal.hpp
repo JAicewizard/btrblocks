@@ -48,6 +48,43 @@ class Decimal : public DoubleScheme {
   inline DoubleSchemeType schemeType() override { return staticSchemeType(); }
   inline static DoubleSchemeType staticSchemeType() { return DoubleSchemeType::PSEUDODECIMAL; }
 };
+
+class Decimal2 : public DoubleScheme {
+ public:
+  u32 compress(const DOUBLE* src,
+               const BITMAP* nullmap,
+               u8* dest,
+               DoubleStats& stats,
+               u8 allowed_cascading_level) override;
+  void decompress(DOUBLE* dest,
+                  BitmapWrapper* bitmap,
+                  const u8* src,
+                  u32 tuple_count,
+                  u32 level) override;
+  bool isUsable(DoubleStats& stats) override;
+  std::string fullDescription(const u8* src) override;
+  inline DoubleSchemeType schemeType() override { return staticSchemeType(); }
+  inline static DoubleSchemeType staticSchemeType() { return DoubleSchemeType::PSEUDODECIMAL; }
+};
+
+class Decimal3 : public DoubleScheme {
+ public:
+  u32 compress(const DOUBLE* src,
+               const BITMAP* nullmap,
+               u8* dest,
+               DoubleStats& stats,
+               u8 allowed_cascading_level) override;
+  void decompress(DOUBLE* dest,
+                  BitmapWrapper* bitmap,
+                  const u8* src,
+                  u32 tuple_count,
+                  u32 level) override;
+  bool isUsable(DoubleStats& stats) override;
+  std::string fullDescription(const u8* src) override;
+  inline DoubleSchemeType schemeType() override { return staticSchemeType(); }
+  inline static DoubleSchemeType staticSchemeType() { return DoubleSchemeType::PSEUDODECIMAL; }
+};
+
 // -------------------------------------------------------------------------------------
 }  // namespace btrblocks::doubles
 // -------------------------------------------------------------------------------------

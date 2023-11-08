@@ -46,7 +46,7 @@ target_link_libraries(double_benchmarking gdouble btrblocks)
 # Pseudodecimal
 add_executable(pseudodecimal_benchmark ${BTR_PLAYGROUND_DIR}/pseudodecimal_benchmark.cpp)
 target_include_directories(pseudodecimal_benchmark PRIVATE ${BTR_INCLUDE_DIR})
-target_link_libraries(pseudodecimal_benchmark btrblocks gflags fsst pthread spdlog)
+target_link_libraries(pseudodecimal_benchmark btrblocks gflags fsst pthread spdlog fmt)
 configure_file(${BTR_PLAYGROUND_DIR}/pbi-double-columns.txt pbi-double-columns.txt COPYONLY)
 
 # Sampling Algorithm
